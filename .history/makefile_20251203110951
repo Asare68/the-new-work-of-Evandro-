@@ -1,0 +1,39 @@
+/CC = gcc
+CFLAGS = -Wall -Wextra -std=c11 -g
+
+# All source files (exactly as they appear in your directory)
+SRCS = \
+    main.c \
+    point.c \
+    list.c \
+    vertex.c \
+    segment.c \
+    seg_tree.c \
+    circle.c \
+    rect.c \
+    geo_parser.c \
+    geo_util.c \
+    svg_writer.c \
+    qry_processor.c \
+    vis_alg.c
+
+# Object files
+OBJS = $(SRCS:.c=.o)
+
+# Output program name
+TARGET = visibility
+
+# Build the executable
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) -lm   # <-- added -lm here
+
+# Generic rule to compile .c → .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Clean
+clean:
+	rm -f *.o $(TARGET)
+.PHONY: clean */
+
+

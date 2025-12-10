@@ -1,0 +1,14 @@
+# Build the executable
+$(TARGET): $(OBJS)
+    $(CC) $(CFLAGS) -o $(TARGET) $(OBJS) -lm   # <-- added -lm here
+
+# Generic rule to compile .c → .o
+%.o: %.c
+    $(CC) $(CFLAGS) -c $< -o $@
+
+# Clean
+clean:
+    rm -f *.o $(TARGET)
+
+# Rebuild everything
+rebuild: clean $(TARGET)

@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Iinclude -std=c11 -O2 -Wall -Wextra
+
+SRCS = src/point.c src/segment.c src/list.c src/vertex.c src/geo_util.c src/seg_tree.c src/circle.c src/rect.c src/vis_alg.c src/geo_parser.c src/qry_processor.c src/svg_writer.c src/main.c
+OBJS = $(SRCS:.c=.o)
+TARGET = visibility
+
+all: $(TARGET)
+
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
+
+clean:
+	rm -f $(TARGET) *.o
