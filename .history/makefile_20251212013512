@@ -1,0 +1,33 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11 -g
+LDFLAGS = -lm
+
+SRCS = \
+    main.c \
+    point.c \
+    list.c \
+    vertex.c \
+    segment.c \
+    seg_tree.c \
+    circle.c \
+    rect.c \
+    geo_parser.c \
+    geo_util.c \
+    svg_writer.c \
+    qry_processor.c \
+    vis_alg.c 
+    shape.c 
+
+OBJS = $(SRCS:.c=.o)
+TARGET = visibility
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) $(LDFLAGS)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f *.o $(TARGET)
+
+.PHONY: clean

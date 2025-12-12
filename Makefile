@@ -15,7 +15,8 @@ SRCS = \
     geo_util.c \
     svg_writer.c \
     qry_processor.c \
-    vis_alg.c
+    vis_alg.c \
+    shape.c           
 
 OBJS = $(SRCS:.c=.o)
 TARGET = visibility
